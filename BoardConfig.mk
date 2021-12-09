@@ -9,6 +9,19 @@ include device/xiaomi/sm6125-common/BoardConfigCommon.mk
 
 DEVICE_PATH := device/xiaomi/laurel_sprout
 
+# A/B
+AB_OTA_UPDATER := true
+
+AB_OTA_PARTITIONS += \
+    boot \
+    dtbo \
+    system \
+    vbmeta \
+    vendor
+
+BOARD_USES_RECOVERY_AS_BOOT := true
+TARGET_NO_RECOVERY := true
+
 # Display
 TARGET_SCREEN_DENSITY := 320
 
