@@ -1003,6 +1003,12 @@ vendor/lib/libmmcamera_laurus_sunny_imx586_eeprom.so
 vendor/lib/libmmcamera_laurus_sunny_s5k4h7_eeprom.so
 vendor/lib/libmmcamera_laurus_sunny_s5kgd1_eeprom.so
 
+# Fingerprint
+vendor/lib64/hw/fingerprint.goodix_fod.so
+vendor/lib64/libgf_hal.so
+vendor/lib64/libvendor.goodix.hardware.biometrics.fingerprint@2.1.so
+vendor/lib64/vendor.qti.hardware.fingerprintext@1.0.so
+
 # Snapdragon Computer Vision Engine
 vendor/lib/libfastcvdsp_stub.so
 vendor/lib/libfastcvopt.so
