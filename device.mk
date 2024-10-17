@@ -42,7 +42,8 @@ TARGET_SCREEN_WIDTH := 720
 # Fingerprint
 PRODUCT_PACKAGES += \
     android.hardware.biometrics.fingerprint-service.xiaomi \
-    init.fingerprint.rc
+    init.fingerprint.rc \
+    libudfpshandler
 
 # Shipping API level
 PRODUCT_SHIPPING_API_LEVEL := 28
