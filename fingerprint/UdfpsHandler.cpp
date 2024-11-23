@@ -10,6 +10,7 @@
 
 #include <android-base/logging.h>
 #include <fcntl.h>
+#include <fstream>
 #include <poll.h>
 #include <thread>
 #include <unistd.h>
@@ -17,6 +18,12 @@
 #define COMMAND_NIT 10
 #define PARAM_NIT_FOD 1
 #define PARAM_NIT_NONE 0
+
+template <typename T>
+static void set(const std::string& path, const T& value) {
+    std::ofstream file(path);
+    file << value;
+}
 
 static const char* kFodUiPath = "/sys/devices/platform/soc/soc:qcom,dsi-display/fod_ui";
 
@@ -88,8 +95,16 @@ class LaurelSproutUdfpsHandler : public UdfpsHandler {
         // nothing
     }
 
-    void onAcquired(int32_t /*result*/, int32_t /*vendorCode*/) {
-        // nothing
+    void onAcquired(int32_t result, int32_t vendorCode) {
+        if (result == FINGERPRINT_ACQUIRED_GOOD) {
+            set(kFodStatusPath, 0);
+        } else if (vendorCode == 21 || vendorCode == 23) {
+            /*
+             * vendorCode = 21 waiting for fingerprint authentication
+             * vendorCode = 23 waiting for fingerprint enroll
+             */
+            set(kFodStatusPath, 1);
+        }
     }
 
     void cancel() {
