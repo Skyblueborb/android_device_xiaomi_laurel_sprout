@@ -42,6 +42,11 @@ TARGET_SCREEN_WIDTH := 720
 # Shipping API level
 PRODUCT_SHIPPING_API_LEVEL := 28
 
+# Rootdir
+PRODUCT_PACKAGES += \
+    fstab.qcom \
+    fstab.zram
+
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH)
