@@ -55,7 +55,8 @@ PRODUCT_SHIPPING_API_LEVEL := 28
 # Rootdir
 PRODUCT_PACKAGES += \
     fstab.qcom \
-    fstab.zram
+    fstab.zram \
+    init.device.rc
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
